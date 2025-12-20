@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oldam Hotels - Premium Luxury Accommodation</title>
+    <link rel="stylesheet" href="oldamhotels.css">
+    <script src="oldamhotels.js" defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">🏨 OLDAM HOTELS</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#rooms">Rooms</a></li>
+                <li><a href="#amenities">Amenities</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Welcome to Oldam Hotels</h1>
+        <p>Experience luxury, comfort, and world-class hospitality at our premium accommodations</p>
+        <button class="cta-btn" onclick="document.getElementById('book-now').scrollIntoView({behavior: 'smooth'})">Book Your Stay Now</button>
+    </section>
+
+    <!-- Quick Booking -->
+    <section class="quick-book" id="book-now">
+        <form class="book-form" onsubmit="handleBookingSearch(event)">
+            <div class="form-group">
+                <label for="arrival">Arrival Date</label>
+                <input type="date" id="arrival" required>
+            </div>
+            <div class="form-group">
+                <label for="departure">Departure Date</label>
+                <input type="date" id="departure" required>
+            </div>
+            <div class="form-group">
+                <label for="guests">Number of Guests</label>
+                <select id="guests" required>
+                    <option value="">Select guests</option>
+                    <option value="1">1 Guest</option>
+                    <option value="2">2 Guests</option>
+                    <option value="3">3 Guests</option>
+                    <option value="4">4 Guests</option>
+                    <option value="5+">5+ Guests</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="rooms">Number of Rooms</label>
+                <select id="rooms" required>
+                    <option value="">Select rooms</option>
+                    <option value="1">1 Room</option>
+                    <option value="2">2 Rooms</option>
+                    <option value="3">3 Rooms</option>
+                    <option value="4+">4+ Rooms</option>
+                </select>
+            </div>
+            <button type="submit" class="book-btn">Check Availability</button>
+        </form>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2>About Oldam Hotels</h2>
+            <p>Oldam Hotels is a premier luxury hotel chain dedicated to providing exceptional hospitality experiences for discerning travelers worldwide.</p>
+            <p>With over 25 years of excellence in the hospitality industry, we pride ourselves on offering world-class amenities, personalized service, and unforgettable accommodations.</p>
+            <p>Our commitment to elegance, comfort, and sustainability makes us the preferred choice for business travelers, families, and couples seeking a premium stay.</p>
+            <p>Whether you're here for business or leisure, we ensure every moment of your stay is perfectly crafted and memorable.</p>
+        </div>
+        <div class="about-image">🏨</div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section class="rooms-section" id="rooms">
+        <h2 class="section-title">Our Rooms & Suites</h2>
+        <p class="section-subtitle">Choose from our carefully curated selection of luxurious accommodations</p>
+        <div class="rooms-grid">
+            <!-- Standard Room -->
+            <div class="room-card">
+                <div class="room-image deluxe">
+                    <span class="room-badge">Most Popular</span>
+                    🛏️
+                </div>
+                <div class="room-content">
+                    <div class="room-name">Deluxe Room</div>
+                    <div class="room-capacity">👥 Up to 2 guests • 35 m²</div>
+                    <ul class="room-features">
+                        <li>King-size bed</li>
+                        <li>Marble bathroom</li>
+                        <li>City view balcony</li>
+                        <li>Premium toiletries</li>
+                        <li>Mini bar & safe</li>
+                    </ul>
+                    <div class="room-price">$199 <small>/ night</small></div>
+                    <button class="reserve-btn" onclick="openReservationModal('Deluxe Room', 199, 2)">Reserve Now</button>
+                </div>
+            </div>
+
+            <!-- Suite -->
+            <div class="room-card">
+                <div class="room-image suite">
+                    <span class="room-badge">Premium</span>
+                    👑
+                </div>
+                <div class="room-content">
+                    <div class="room-name">Executive Suite</div>
+                    <div class="room-capacity">👥 Up to 4 guests • 65 m²</div>
+                    <ul class="room-features">
+                        <li>Separate living area</li>
+                        <li>Two bathrooms</li>
+                        <li>Panoramic views</li>
+                        <li>Sofa & dining area</li>
+                        <li>Premium amenities</li>
+                    </ul>
+                    <div class="room-price">$349 <small>/ night</small></div>
+                    <button class="reserve-btn" onclick="openReservationModal('Executive Suite', 349, 4)">Reserve Now</button>
+                </div>
+            </div>
+
+            <!-- Presidential Suite -->
+            <div class="room-card">
+                <div class="room-image presidential">
+                    <span class="room-badge">Luxury</span>
+                    💎
+                </div>
+                <div class="room-content">
+                    <div class="room-name">Presidential Suite</div>
+                    <div class="room-capacity">👥 Up to 6 guests • 120 m²</div>
+                    <ul class="room-features">
+                        <li>Two bedrooms</li>
+                        <li>Three bathrooms</li>
+                        <li>Full kitchen</li>
+                        <li>Private pool access</li>
+                        <li>Dedicated concierge</li>
+                    </ul>
+                    <div class="room-price">$699 <small>/ night</small></div>
+                    <button class="reserve-btn" onclick="openReservationModal('Presidential Suite', 699, 6)">Reserve Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities Section -->
+    <section class="amenities" id="amenities">
+        <div class="amenities-container">
+            <h2 class="section-title">World-Class Amenities</h2>
+            <p class="section-subtitle">Discover everything you need for a perfect stay</p>
+            <div class="amenities-grid">
+                <div class="amenity-item">
+                    <div class="amenity-icon">🏊</div>
+                    <h4>Swimming Pool</h4>
+                    <p>Olympic-sized heated pool with hot tub and relaxation area</p>
+                </div>
+                <div class="amenity-item">
+                    <div class="amenity-icon">💪</div>
+                    <h4>Fitness Center</h4>
+                    <p>24/7 state-of-the-art gym with personal training available</p>
+                </div>
+                <div class="amenity-item">
+                    <div class="amenity-icon">🍽️</div>
+                    <h4>Fine Dining</h4>
+                    <p>Michelin-star restaurant serving international and local cuisine</p>
+                </div>
+                <div class="amenity-item">
+                    <div class="amenity-icon">🧖</div>
+                    <h4>Spa & Wellness</h4>
+                    <p>Full-service spa with massage, facial, and relaxation treatments</p>
+                </div>
+                <div class="amenity-item">
+                    <div class="amenity-icon">📱</div>
+                    <h4>Tech Services</h4>
+                    <p>High-speed Wi-Fi, business center, and smart room controls</p>
+                </div>
+                <div class="amenity-item">
+                    <div class="amenity-icon">🎵</div>
+                    <h4>Entertainment</h4>
+                    <p>Live music, cinema room, and exclusive events throughout the year</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="reviews">
+        <h2 class="section-title">Guest Reviews</h2>
+        <p class="section-subtitle">What our valued guests say about their experience</p>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="rating">⭐⭐⭐⭐⭐</div>
+                <div class="testimonial-text">"Oldam Hotels exceeded all my expectations. The staff was incredibly attentive, the rooms were immaculate, and the amenities were world-class. I'll definitely be returning!"</div>
+                <div class="testimonial-author">Sarah Johnson</div>
+                <div class="testimonial-position">New York, USA</div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="rating">⭐⭐⭐⭐⭐</div>
+                <div class="testimonial-text">"Stunning luxury hotel with exceptional service. The Presidential Suite was absolutely magnificent, and the spa treatments were the perfect way to unwind after business meetings."</div>
+                <div class="testimonial-author">Michael Chen</div>
+                <div class="testimonial-position">Singapore</div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="rating">⭐⭐⭐⭐⭐</div>
+                <div class="testimonial-text">"Perfect honeymoon destination! The romantic ambiance, stunning views, and impeccable service made our stay truly unforgettable. We loved every moment!"</div>
+                <div class="testimonial-author">Emma & David White</div>
+                <div class="testimonial-position">London, UK</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section style="background: white; padding: 4rem 2rem; text-align: center; margin: 4rem 0;" id="contact">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 style="color: #8b4513; font-size: 2.8rem; margin-bottom: 1.5rem; font-weight: 700;">Contact Oldam Hotels</h2>
+            <p style="color: #666; font-size: 1.1rem; margin-bottom: 3rem;">Have a question? We'd love to help!</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2.5rem;">
+                <div>
+                    <div style="font-size: 2.5rem; margin-bottom: 0.8rem;">📞</div>
+                    <p style="font-weight: 700; color: #8b4513; margin-bottom: 0.3rem;">Reservations</p>
+                    <p style="color: #666;">+1 (555) 123-7890</p>
+                </div>
+                <div>
+                    <div style="font-size: 2.5rem; margin-bottom: 0.8rem;">✉️</div>
+                    <p style="font-weight: 700; color: #8b4513; margin-bottom: 0.3rem;">Email Us</p>
+                    <p style="color: #666;">reservations@oldamhotels.com</p>
+                </div>
+                <div>
+                    <div style="font-size: 2.5rem; margin-bottom: 0.8rem;">📍</div>
+                    <p style="font-weight: 700; color: #8b4513; margin-bottom: 0.3rem;">Headquarters</p>
+                    <p style="color: #666;">123 Luxury Avenue, New York, NY</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About Oldam Hotels</h4>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Our Values</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Guest Services</h4>
+                    <ul>
+                        <li><a href="#">Reservations</a></li>
+                        <li><a href="#">Loyalty Program</a></li>
+                        <li><a href="#">Group Bookings</a></li>
+                        <li><a href="#">Special Offers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Cancellation Policy</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Oldam Hotels. All rights reserved. Delivering luxury experiences worldwide.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Reservation Modal -->
+    <div id="reservationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeReservationModal()">&times;</span>
+            <h2>Complete Your Reservation</h2>
+            <p style="color: #666; margin-bottom: 1.5rem;">Room: <strong id="modalRoomName">Loading...</strong></p>
+            
+            <form class="modal-form" onsubmit="completeReservation(event)">
+                <input type="text" placeholder="Full Name" id="guestName" required>
+                <input type="email" placeholder="Email Address" id="guestEmail" required>
+                <input type="tel" placeholder="Phone Number" id="guestPhone" required>
+                <input type="text" placeholder="Special Requests (optional)" id="specialRequests">
+                
+                <div class="price-summary">
+                    <div class="price-row">
+                        <span>Nightly Rate:</span>
+                        <span id="nightly">$199.00</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Number of Nights:</span>
+                        <span id="nightCount">1</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Taxes & Fees:</span>
+                        <span id="taxes">$0.00</span>
+                    </div>
+                    <div class="price-total">
+                        <span>Total:</span>
+                        <span id="totalPrice">$199.00</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="confirm-btn">Confirm Reservation</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
